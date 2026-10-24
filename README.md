@@ -25,4 +25,4 @@ the Netherlands, and to show the final list once.
 
 The plugin sends your search terms (artist, city, venue, genre, dates) to Concertje through
 ai.concertje.be, signed in with your Concertje account. It is read-only: it can't buy tickets or change
-anything in your account. See https://concertje.be/privacy.
+anything in your account. Privacy policy: <https://concertje.be/privacy>
