@@ -1,0 +1,12 @@
+{
+  "name": "concertje",
+  "description": "The Concertje plugin for Claude: concerts in Belgium and the Netherlands.",
+  "owner": { "name": "Kevin Meyvaert", "email": "info@concertje.be" },
+  "plugins": [
+    {
+      "name": "concertje",
+      "source": "./",
+      "description": "Find upcoming concerts and gigs in Belgium and the Netherlands, shown as cards with links to Concertje."
+    }
+  ]
+}

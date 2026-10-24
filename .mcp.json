@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "concertje": {
+      "type": "http",
+      "url": "https://ai.concertje.be/mcp"
+    }
+  }
+}
