@@ -16,25 +16,25 @@ Explicit user instructions take priority over this skill.
 
 ## 2. Call the right tool
 
-- Today or tonight: `concertje_todays_concerts`, with `city` when one is given.
-- From today through Sunday: `concertje_this_weeks_concerts`.
-- Any other dates: `concertje_search_concerts` with `dateFrom` and `dateTo` (YYYY-MM-DD).
-- A genre ("post-punk", "techno"): pass `genre` as the user wrote it, on any of these three tools,
-  instead of fetching everything and filtering yourself. An unknown genre is an error: try a broader one.
+- Concerts on a date or in a period: `concertje_search_concerts` with `when` (`today`, `tomorrow`,
+  `weekend`, `week`, `month`) or `dateFrom` and `dateTo` (YYYY-MM-DD).
+- Every search shows its results to the user as cards, so ask in one call: put all the cities in
+  `cities` and all the genres in `genres` ("post-punk", "techno", as the user wrote them) instead of
+  one search per city or genre, or fetching everything and filtering yourself. An unknown genre is an
+  error: try a broader one.
 - A venue: `concertje_list_venues` for its ID (match on `name` or `aliases`), then
   `concertje_search_concerts` with `venueId`.
-- An artist: `concertje_search_concerts` with `search` set to the name. For genres, bio or related
-  artists, call `concertje_get_artist` with an artist `id` from those results.
+- Artists: `concertje_search_concerts` with every name in `searches`; without `country` it covers both
+  countries. For genres, bio or related artists, call `concertje_get_artist` with an artist `id` from
+  those results.
 - Price, on-sale or presale details for one show: `concertje_get_concert` with its `id`.
-- Nothing found for an artist in one country: try the other country once before saying there are no shows.
-- `pagination.total` larger than the results: page with `offset` only when the user wants more.
+- `pagination.total` larger than the results: page with `offset` only when the user wants more. The
+  `countries` in a result are the ones it searched; don't search those again.
 
 ## 3. Answer
 
-- Once you know which concerts you'll present, call `concertje_show_concerts` once with their `id`s
-  (at most 20), in the order you list them. It shows them as cards; never call it for intermediate results.
-- One line per concert: date, artists, venue and city, ticket status, price, and the `url` link.
-- Sort by date. More than 10 concerts: show the first 10 and say how many more there are.
+- The cards already list the concerts, so don't repeat them all. Highlight the best few, one line each:
+  date, artists, venue and city, ticket status, price, and the `url` link. Say how many more there are.
 - Ticket status in words: `announced` (not on sale yet), `available`, `limited` (few left), `waitlist`, `sold_out`, `cancelled`, `unknown`.
 - State only prices, dates and statuses a tool returned. A missing price or on-sale date is unknown, not free.
 - No results: say so plainly and suggest a wider date range or a nearby city.

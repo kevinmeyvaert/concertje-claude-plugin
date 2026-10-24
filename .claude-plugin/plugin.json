@@ -1,7 +1,7 @@
 {
   "name": "concertje",
   "displayName": "Concertje",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Find upcoming concerts and gigs in Belgium and the Netherlands: dates, venues, line-ups, ticket status, prices and on-sale dates, shown as cards with links to Concertje.",
   "author": {
     "name": "Kevin Meyvaert",
